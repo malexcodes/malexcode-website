@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>malexcodes - Webdesign & Programmierung</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    /* Grundlegendes Styling */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    body {
+      background: #f0f4f8;
+      color: #333;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    header {
+      background: linear-gradient(90deg, #6a11cb, #2575fc);
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      opacity: 0.85;
+    }
+
+    nav {
+      margin-top: 20px;
+    }
+
+    nav a {
+      margin: 0 15px;
+      font-weight: bold;
+      transition: all 0.3s;
+    }
+
+    nav a:hover {
+      color: #ffd700;
+    }
+
+    section {
+      padding: 80px 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .intro {
+      text-align: center;
+    }
+
+    .intro h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .intro p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #555;
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 40px;
+    }
+
+    .card {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    }
+
+    .card h3 {
+      margin-bottom: 15px;
+      color: #2575fc;
+    }
+
+    .card p {
+      color: #555;
+    }
+
+    .contact {
+      text-align: center;
+    }
+
+    .contact a {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 15px 30px;
+      background: #2575fc;
+      color: white;
+      border-radius: 50px;
+      font-weight: bold;
+      transition: all 0.3s;
+    }
+
+    .contact a:hover {
+      background: #6a11cb;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #333;
+      color: white;
+    }
+
+    /* Scroll Animation */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.8s ease-out;
+    }
+
+    .fade-in.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>malexcodes</h1>
+    <p>HTML, CSS & JS Programmierung – Professionelle Landing Pages</p>
+    <nav>
+      <a href="#services">Leistungen</a>
+      <a href="#about">Über mich</a>
+      <a href="#contact">Kontakt</a>
+    </nav>
+  </header>
+
+  <section class="intro fade-in" id="about">
+    <h2>Willkommen bei malexcodes</h2>
+    <p>Ich erstelle moderne und responsive Landing Pages mit HTML, CSS und JavaScript. 
+       Perfekt für kleine Businesses, Freelancer oder jeden, der online präsent sein möchte. 
+       Schauen Sie sich meine Beispielprojekte an und kontaktieren Sie mich über Fiverr.</p>
+  </section>
+
+  <section class="services fade-in" id="services">
+    <div class="card">
+      <h3>Landing Pages</h3>
+      <p>Schlichte und elegante Webseiten, die Besucher sofort überzeugen.</p>
+    </div>
+    <div class="card">
+      <h3>Responsive Design</h3>
+      <p>Alle Webseiten sind auf Smartphones, Tablets und Desktops perfekt angepasst.</p>
+    </div>
+    <div class="card">
+      <h3>Interaktive Effekte</h3>
+      <p>Hover-Effekte, Animationen und moderne UI-Elemente für ein tolles Nutzererlebnis.</p>
+    </div>
+    <div class="card">
+      <h3>Individuelle Anpassung</h3>
+      <p>Design und Funktionalität werden nach Ihren Wünschen angepasst.</p>
+    </div>
+  </section>
+
+  <section class="contact fade-in" id="contact">
+    <h2>Jetzt kontaktieren</h2>
+    <p>Besuchen Sie mein Fiverr-Profil und lassen Sie uns Ihr Projekt starten!</p>
+    <a href="https://www.fiverr.com/malexcodes" target="_blank">Zu Fiverr</a>
+  </section>
+
+  <footer>
+    <p>© 2025 malexcodes. Alle Rechte vorbehalten.</p>
+  </footer>
+
+  <script>
+    // Scroll-Animation
+    const faders = document.querySelectorAll('.fade-in');
+
+    const appearOptions = {
+      threshold: 0.2,
+      rootMargin: "0px 0px -50px 0px"
+    };
+
+    const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('show');
+        appearOnScroll.unobserve(entry.target);
+      });
+    }, appearOptions);
+
+    faders.forEach(fader => {
+      appearOnScroll.observe(fader);
+    });
+  </script>
+</body>
+</html>
